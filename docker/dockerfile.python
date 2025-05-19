@@ -1,0 +1,21 @@
+FROM python:3.11
+
+# Tạo user
+USER root
+# Cài đặt Java
+RUN apt-get update && \
+    apt-get install -y gcc python3-dev openjdk-17-jdk && \
+    apt-get clean
+
+# Tải java 11
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Copy requirements.txt vào image
+COPY requirements.txt /home/ndtien/requirements.txt
+
+# Cài đặt các thư viện Python
+RUN pip install --upgrade pip && \
+    pip install -r /home/ndtien/requirements.txt
+
+WORKDIR /app

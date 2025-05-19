@@ -1,0 +1,11 @@
+requests
+bs4
+pandas
+numpy
+websocket-client
+python-binance
+kafka-python
+pyspark==3.5.0
+delta-spark
+apache-airflow==2.10.5
+psycopg2-binary
