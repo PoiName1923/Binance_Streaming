@@ -13,12 +13,13 @@
 Dự án này cung cấp công cụ thu thập và xử lý dữ liệu thị trường tiền điện tử theo thời gian thực từ Binance - một trong những sàn giao dịch tiền điện tử lớn nhất thế giới. Hệ thống sử dụng WebSocket API của Binance để lấy dữ liệu và xử lý qua nhiều giai đoạn trước khi lưu trữ vào Snowflake.
 ![Kiến trúc hệ thống](images/diagram.png)
 
-## Tính năng chính:
+## Tính năng
+### Tính năng chính:
 - Thu thập dữ liệu real-time từ Binance WebSocket API
 - Xử lý dữ liệu cơ bản trước khi lưu trữ
 - Lưu trữ dữ liệu vào CSDL Snowflake (dạng Star)
 
-## Tính năng có thể mở rộng trong tương lai:
+### Tính năng có thể mở rộng trong tương lai:
 - Mô hình dự đoán giá của từng loại ticker.
 - Trình bày cơ bản bằng Power BI.
 
