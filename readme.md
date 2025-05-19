@@ -1,13 +1,13 @@
 # Dự án Streaming Data Binance
 
 ## Mục Lục
-- [Giới Thiệu](#Giới Thiệu)
-- [Tính năng](#Tính năng)
-- [Yêu cầu](#Yêu cầu)
-- [Cài đặt](#Cài đặt)
-- [Sử dụng](#Sử dụng)
-- [Cấu trúc thư mục](#Cấu trúc thư mục)
-- [Liên lạc](#Liên lạc)
+- [Giới Thiệu](#giới-Thiệu)
+- [Tính năng](#tính-năng)
+- [Yêu cầu](#yêu-cầu)
+- [Cài đặt](#cài-đặt)
+- [Sử dụng](#sử-dụng)
+- [Cấu trúc thư mục](#cấu-trúc-thư-mục)
+- [Liên lạc](#liên-lạc)
 
 ## Giới thiệu:
 Dự án này cung cấp công cụ thu thập và xử lý dữ liệu thị trường tiền điện tử theo thời gian thực từ Binance - một trong những sàn giao dịch tiền điện tử lớn nhất thế giới. Hệ thống sử dụng WebSocket API của Binance để lấy dữ liệu và xử lý qua nhiều giai đoạn trước khi lưu trữ vào Snowflake.
