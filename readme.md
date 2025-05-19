@@ -10,7 +10,7 @@
 - [Liên lạc](#Liên lạc)
 
 ## Giới thiệu:
-Repository này chứa công cụ thu thập dữ liệu streaming từ Binance - một trong những sàn giao dịch tiền điện tử lớn nhất thế giới. Dự án cung cấp giải pháp gần như real-time để lấy dữ liệu thị trường tiền mã hóa thông qua WebSocket API của Binance.
+Dự án này cung cấp công cụ thu thập và xử lý dữ liệu thị trường tiền điện tử theo thời gian thực từ Binance - một trong những sàn giao dịch tiền điện tử lớn nhất thế giới. Hệ thống sử dụng WebSocket API của Binance để lấy dữ liệu và xử lý qua nhiều giai đoạn trước khi lưu trữ vào Snowflake.
 ![Kiến trúc hệ thống](images/diagram.png)
 
 ## Tính năng chính:
@@ -23,11 +23,13 @@ Repository này chứa công cụ thu thập dữ liệu streaming từ Binance 
 - Trình bày cơ bản bằng Power BI.
 
 ## Yêu cầu:
-- Ứng dụng:
-***Docker Desktop ***
-Bạn có thể tìm kiếm và tải về từ đây:
-https://www.docker.com
-- Hệ điều hành windown (Tồn tại ổ đĩa E:)
+- **Phần mềm bắt buộc**:
+  - Docker Desktop (phiên bản 20.10.7 trở lên)
+  - Git để clone repository
+- **Cấu hình đề nghị**:
+  - CPU: Tối thiểu 4 cores
+  - RAM: Tối thiểu 8GB
+  - Ổ cứng trống: Tối thiểu 10GB (Tồn tại ổ đĩa E:)
 
 ## Cài đặt:
 Chạy lệnh sau để clone dự án về máy tính cá nhân từ **terminal** của máy tính cá nhân
@@ -105,4 +107,4 @@ lệnh này sẽ tải về các container để chứa các công cụ cũng nh
 ## Liên lạc:
 - Phone: 0377765389
 - Email: nguyendinhtien23012004@gmail.com
-- Facebook: ![Nguyễn Tiến](https://www.facebook.com/poi.name)
+- Facebook: https://www.facebook.com/poi.name (Nguyễn Tiến)
