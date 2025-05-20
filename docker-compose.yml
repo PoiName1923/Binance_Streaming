@@ -109,6 +109,7 @@ services:
     image: minio/minio
     container_name: minio
     hostname: minio
+    restart: unless-stopped
     depends_on:
       - spark-master
     ports:
@@ -151,6 +152,7 @@ services:
   # Airflow
   postgres:
     image: postgres:16
+    restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

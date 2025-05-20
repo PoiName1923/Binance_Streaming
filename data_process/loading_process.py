@@ -42,30 +42,6 @@ config = {
 
     "spark.hadoop.aws.java.v1.disableDeprecationAnnouncement": "true",
 }
-kline_schema = StructType([
-    StructField("e", StringType()),  # Event type
-    StructField("E", LongType()),    # Event time
-    StructField("s", StringType()),  # Symbol
-    StructField("k", StructType([
-        StructField("t", LongType()),     # Kline start time
-        StructField("T", LongType()),     # Kline close time
-        StructField("s", StringType()),   # Symbol
-        StructField("i", StringType()),   # Interval
-        StructField("f", LongType()),     # First trade ID
-        StructField("L", LongType()),     # Last trade ID
-        StructField("o", StringType()),   # Open price
-        StructField("c", StringType()),   # Close price
-        StructField("h", StringType()),   # High price
-        StructField("l", StringType()),   # Low price
-        StructField("v", StringType()),   # Base asset volume
-        StructField("n", LongType()),     # Number of trades
-        StructField("x", BooleanType()),  # Is this kline closed?
-        StructField("q", StringType()),   # Quote asset volume
-        StructField("V", StringType()),   # Taker buy base asset volume
-        StructField("Q", StringType()),   # Taker buy quote asset volume
-        StructField("B", StringType())    # Ignore
-    ]))
-])
 
 # Lấy ngày và giờ trước đó
 def get_date_and_hour():
@@ -129,9 +105,11 @@ def spliting_loading_snowflake(spark, logger, sf_options, date,hour):
             .where(f'date = "{date}" AND hour={hour}'))
         
         # Create state track stream
-        state_track = (source_df.filter(col("is_kline_closed") == True)
+        state_tracks = (source_df.filter(col("is_kline_closed") == True)
             .select(
+                "date",
                 "event_time",
+                "hour"
                 "symbol",
                 "is_kline_closed"
             ))
@@ -163,7 +141,7 @@ def spliting_loading_snowflake(spark, logger, sf_options, date,hour):
             ))
         # Ghi dữ liệu với kiểm tra lỗi
         write_success = all([
-            write_to_snowflake(state_track, "STATE_TRACKS", logger=logger,sf_options=sf_options),
+            write_to_snowflake(state_tracks, "STATE_TRACKS", logger=logger,sf_options=sf_options),
             write_to_snowflake(trade_tracks, "TRADE_TRACKS", logger=logger,sf_options=sf_options),
             write_to_snowflake(data_tracks, "DATA_TRACKS", logger=logger,sf_options=sf_options)
         ])
@@ -179,9 +157,9 @@ def spliting_loading_snowflake(spark, logger, sf_options, date,hour):
 if __name__=='__main__':
     # Cấu hình Snowflake
     sf_options = {
-        "sfUrl": "your-account.snowflakecomputing.com",
-        "sfUser": "user_name",
-        "sfPassword": "password",
+        "sfUrl": "BUFPXFQ-KI50855.snowflakecomputing.com",
+        "sfUser": "poiname",
+        "sfPassword": "@Aatienpoi2004",
         "sfDatabase": "CRYPTO",
         "sfSchema": "BINANCE",
         "sfWarehouse": "COMPUTE_WH",
