@@ -16,7 +16,7 @@ jars = [
     "/opt/airflow/jars/snowflake-jdbc-3.22.0.jar",
 ]
 config = {
-    "spark.executor.memory"     :"2G",
+    "spark.executor.memory"     :"1G",
     "spark.executor.instances"  :"1",
     "spark.executor.cores"      :"2",
     "spark.cores.max"           :"2",
